@@ -1,0 +1,48 @@
+
+@import '../../globalStyles/mixins';
+
+$greyText: rgba($primaryDarkText, 0.5);
+
+.todoInput {
+  @include itemBox();
+  display: flex;
+  position: relative;
+
+  .title {
+    flex-grow: 1;
+    z-index: 1;
+    min-width: 0;
+  }
+
+  .titleDefault {
+    padding: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $greyText;
+  }
+
+  .submitButton {
+    height: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    outline: none;
+    padding: 0;
+    padding-left: 1.4em;
+    margin-top: -0.5em;
+
+    .icon, .icon.disabled {
+      padding-left: 0;
+    }
+  }
+
+  .icon {
+    @include icon(inherit, $hoverColor);
+    
+    &.disabled {
+      @include icon($greyText, $greyText);
+    }
+  }
+}
